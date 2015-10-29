@@ -1,33 +1,49 @@
-@import "normalize.css/normalize"
-@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Gentium+Book+Basic)
+// @import "normalize.css/normalize"
+@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Gentium+Book+Basic|Fugaz+One|Vollkorn|Quando|Yeseva+One|Montserrat|Alegreya|Archivo+Narrow|Chivo)
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css)
 
+$impulseOrange: #F54100
+$Ashade1: #FF8B60
+$Ashade2: #FF6B35
+$Ashade3: #C13400
+$Ashade4: #972900
+
+$compliment: #00A95C
+$Bshade1: #49C28B
+$Bshade2: #25B473
+$Bshade3: #008549
+$Bshade4: #006839
+
+
+$logoFont: Alfa Slab One
+$bodyFont: Gentium Book Basic
 
 body
   background-color: #EEF0E3
 
 .title
-  color: #F54100
-  font-family: Alfa Slab One
+  color: $impulseOrange
+  font-family: $logoFont
   font-size: 80px
   text-align: center
   margin: 0
-  margin-top: 180px
+  margin-top: 150px
 
 .paragraph1
-  font-family: Gentium Book Basic
+  font-family: $bodyFont
   text-align: center
   width: 80%
   margin: 0 auto
+  margin-top: 20px
 
 .subtext
   position: relative
   top: 100px
   text-align: center
-  font-family: Gentium Book Basic
+  font-family: $bodyFont
 
   i
-    color: #F54100
+    color: $impulseOrange
     font-size: 18px
 
 footer
@@ -41,10 +57,34 @@ footer
   line-height: 20px
   padding: 0
 
-
   p
     position: fixed
     left: 20px
-    font-size: 12px
+    font-size: 16px
     margin: 0
-    font-family: Gentium Book Basic
+    font-family: $bodyFont
+
+#map
+  width: 95%
+  height: 400px
+  margin-left: auto
+  margin-right: auto
+  top: 200px
+
+header
+  position: fixed
+  color: $impulseOrange
+  width: 100%
+  height: 20px
+  left: 0
+  top: 0
+  text-align: left
+  padding: 0
+
+  h3
+    position: fixed
+    left: 20px
+    top: 10px
+    margin: 0
+    font-size: 30px
+    font-family: $logoFont

@@ -5,26 +5,23 @@
   <meta charset="utf-8">
   <title>impulse</title>
   <link rel="stylesheet" href="screen.css" media="screen" charset="utf-8">
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </head>
 
 <body>
-  <div class="centered">
-      <h1 class="title">
-        impulse
-      </h1>
-      <p class="paragraph1">
-        Why wait when you can have it <em>now</em>?
-      </p>
-      <div class="subtext">
-        <i class="fa fa-bolt"></i>
-        Coming Soon.
-      </div>
-      <footer>
-        <p>
-          &copy; 2015 Ryan Atkinson &trade;
-        </p>
-      </footer>
-  </div>
+  <div id="app"></div>
 
   <script src="bundle.js" charset="utf-8"></script>
 </body>

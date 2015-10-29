@@ -5,10 +5,20 @@ import source from 'vinyl-source-stream';
 import browserSync from 'browser-sync';
 import sass from 'gulp-sass';
 import ghPages from 'gh-pages';
+import gutil from 'gulp-util';
 
 const sync = browserSync.create();
 
 gulp.task('html', () => {
+  gulp.src('src/**/*.html')
+    .pipe(gulp.dest('dist'))
+    .pipe(sync.reload({
+      stream: true
+    }));
+});
+
+gulp.task('json', () => {
+  gulp.src('src/**/*.json')
     gulp.src('src/**/*.html')
     .pipe(gulp.dest('dist'))
     .pipe(sync.reload({
@@ -18,13 +28,15 @@ gulp.task('html', () => {
 
 gulp.task('script', () => {
   browserify({
-      entries: ['./src/scripts/main.js'],
-      extension: ['.js'],
+      entries: ['./src/scripts/main.jsx'],
+      extension: ['.js', '.jsx'],
       debug: true
-    }).transform(babelify).bundle()
-    .on('error', function(err) {
-      console.log(err.toString());
-      this.emit("end");
+    }).transform(babelify.configure({
+      optional: ['es7.classProperties']
+    })).bundle()
+    .on('error', (error) => {
+      gutil.log(gutil.colors.red('Error: ' + error.message));
+      gutil.beep();
     })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('dist'))
@@ -33,18 +45,37 @@ gulp.task('script', () => {
     }));
 });
 
-gulp.task('styles', () => {
-  gulp.src('src/styles/**/*.{scss,sass}')
-    .pipe(sass({
-      includePaths: ['node_modules']
-    }).on('error', sass.logError))
-    .pipe(gulp.dest('dist'))
-    .pipe(sync.reload({
-      stream: true
-    }));
+// gulp.task('styles', () => {
+//   gulp.src('src/styles/**/*.{scss,sass}')
+//     .pipe(sass({
+//       includePaths: ['node_modules']
+//     }).on('error', sass.logError))
+//     .pipe(gulp.dest('dist'))
+//     .pipe(sync.reload({
+//       stream: true
+//     }));
+// });
+
+gulp.task('styles', ['fonts'], () => {
+  gulp.src('src/styles/**/*.{css,sass}')
+    .pipe(sass()
+      .on('error', (error) => {
+        gutil.log(gutil.colors.red('Error: ' + error.message));
+        gutil.beep();
+      }))
+      .pipe(gulp.dest('dist'))
+      .pipe(sync.reload({
+        stream: true
+      }));
 });
 
-gulp.task('build', ['html', 'script', 'styles']);
+//Fonts
+gulp.task('fonts', () => {
+  gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest('dist/fonts/'));
+});
+
+gulp.task('build', ['html', 'script', 'styles', 'json']);
 
 gulp.task('deploy', ['build'], () => {
   ghPages.publish('dist');
@@ -56,8 +87,9 @@ gulp.task('serve', ['build'], () => {
   });
 
   gulp.watch('src/**/*.{html,jade}', ['html']);
-  gulp.watch('src/**/*.{scss,sass}', ['styles']);
-  gulp.watch('src/**/*.js', ['script'])
+  gulp.watch('src/**/*.json', ['json']);
+  gulp.watch('src/**/*.{css,scss,sass}', ['styles']);
+  gulp.watch('src/**/*.{js,jsx}', ['script'])
 });
 
 gulp.task('default', ['serve']);
