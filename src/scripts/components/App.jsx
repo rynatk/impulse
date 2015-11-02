@@ -2,7 +2,7 @@ import React from 'react';
 
 import Splash from './Splash.jsx';
 import Search from './Search.jsx';
-import Result from './Result.jsx';
+import Results from './Results.jsx';
 
 import Footer from './Footer.jsx';
 
@@ -39,8 +39,8 @@ class App extends React.Component {
       case 'search' :
         currentView = <Search/>;
         break;
-      case 'result' :
-        currentView = <Result/>;
+      case 'results' :
+        currentView = <Results/>;
         break;
       default :
         currentView = <Splash/>;

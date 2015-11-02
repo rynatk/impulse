@@ -5,7 +5,7 @@ class Map extends React.Component {
     let customMapType = new google.maps.StyledMapType([
       {
         stylers: [
-          {hue: '#00A95C'},
+          {hue: '#972900'},
           {visibility: 'simplified'},
           {gamma: 0.5},
           {weight: 0.5}
@@ -17,7 +17,7 @@ class Map extends React.Component {
       },
       {
         featureType: 'water',
-        stylers: [{color: '#F54100'}]
+        stylers: [{color: '#FF8B60'}]
       }
     ], {
       name: 'Impulse Styling'
@@ -26,7 +26,7 @@ class Map extends React.Component {
 
     let mapOptions = {
       center: new google.maps.LatLng(44.5403, -78.5463),
-      zoom: 15,
+      zoom: 14,
       mapTypeControl: false,
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
     }

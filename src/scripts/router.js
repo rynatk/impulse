@@ -3,9 +3,9 @@ import Backbone from 'backbone';
 class Router extends Backbone.Router {
   get routes() {
     return {
-      '' : 'splash',
-      'search' : 'search',
-      'result' : 'result'
+      '' : 'search',
+      'results/:id' : 'results',
+      'splash' : 'splash'
     }
   }
 
@@ -19,9 +19,9 @@ class Router extends Backbone.Router {
     this.current = 'search';
   }
 
-  result() {
+  results() {
     console.log('routed to "result"!');
-    this.current = 'result';
+    this.current = 'results';
   }
 
   initialize() {
