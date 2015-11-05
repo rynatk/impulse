@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Splash from './Splash.jsx';
-import Search from './Search.jsx';
-import Results from './Results.jsx';
+import SearchPage from './SearchPage.jsx';
+import ResultsPage from './ResultsPage.jsx';
 
+import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
 class App extends React.Component {
@@ -37,10 +38,10 @@ class App extends React.Component {
         currentView = <Splash/>;
         break;
       case 'search' :
-        currentView = <Search/>;
+        currentView = <SearchPage/>;
         break;
       case 'results' :
-        currentView = <Results/>;
+        currentView = <ResultsPage/>;
         break;
       default :
         currentView = <Splash/>;
@@ -48,6 +49,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Header/>
         {currentView}
         <Footer/>
       </div>

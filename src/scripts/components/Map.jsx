@@ -25,6 +25,7 @@ class Map extends React.Component {
     let customMapTypeId = 'impulse_style';
 
     let mapOptions = {
+      scrollwheel: false,
       center: new google.maps.LatLng(44.5403, -78.5463),
       zoom: 14,
       mapTypeControl: false,
@@ -69,7 +70,7 @@ class Map extends React.Component {
   render() {
     return (
       <div>
-        <div id="map" ref="map"></div>
+        <div className="map" ref="map"></div>
       </div>
     );
   }

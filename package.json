@@ -17,6 +17,7 @@
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-google-maps": "^4.2.0",
     "underscore": "^1.8.3"
   }
 }
