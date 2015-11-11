@@ -5,7 +5,7 @@ export class Product extends Backbone.Model {
 
 export class Products extends Backbone.Collection {
     get url() {
-      return '/productData.json';
+      return 'productData.json';
     }
 
     get model() {
