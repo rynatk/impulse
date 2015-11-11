@@ -662,6 +662,7 @@ input {
   position: fixed;
   width: 100%;
   top: 0;
+  height: 100vh;
   z-index: 95; }
 
 /* SearchPage.jsx */
