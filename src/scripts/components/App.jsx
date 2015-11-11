@@ -7,6 +7,8 @@ import ResultsPage from './ResultsPage.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
+import {Products} from '../product.js';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -14,6 +16,10 @@ class App extends React.Component {
     this.state = {
       currentRoute: props.router.current
     }
+  }
+
+  get products() {
+    return new Products();
   }
 
   componentWillMount() {
@@ -38,10 +44,10 @@ class App extends React.Component {
         currentView = <Splash/>;
         break;
       case 'search' :
-        currentView = <SearchPage/>;
+        currentView = <SearchPage collection={this.products} />;
         break;
       case 'results' :
-        currentView = <ResultsPage/>;
+        currentView = <ResultsPage query={this.props.router.query} collection={this.products} />;
         break;
       default :
         currentView = <Splash/>;

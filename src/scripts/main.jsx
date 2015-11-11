@@ -14,7 +14,6 @@ _.templateSettings = {
 const Browser_API_Key_1 = 'AIzaSyCxguGbtEDDai2iyvvbtrBjDwFojAVwctc';
 
 $(() => {
-  console.log('hello!');
   let router = new Router();
 
   ReactDOM.render(

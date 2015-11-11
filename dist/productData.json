@@ -1,0 +1,117 @@
+[
+  {
+    "search_key": "q2891",
+    "product_name": "Beats by Dr. Dre",
+    "description": "Beats by Dr. Dre (Beats), is a leading audio brand founded in 2006",
+    "image_filename": "beatsImage.jpg",
+    "store_info": {
+      "name": "Best Buy",
+      "address": {
+        "street": "6600 22nd Avenue N",
+        "cityStateZip": "St. Petersburg, FL 33710"
+      },
+      "coordinates": {
+        "latitude": 27.790395,
+        "longitude": -82.730466
+      },
+      "ironYardDistance": 1
+    },
+    "alternative_locations": [
+      "TRC Electronics Inc.",
+      "Target",
+      "hhgregg"
+    ]
+  },
+  {
+    "search_key": "q8273",
+    "product_name": "Simply Orange Juice",
+    "description": " ",
+    "image_filename": "simplyOrangeImage.jpg",
+    "store_info": {
+      "name": "Publix Super Market",
+      "address": {
+        "street": "250 3rd St. S",
+        "cityStateZip": "St. Petersburg, FL 33701"
+      },
+      "coordinates": {
+        "latitude": 27.7690972,
+        "longitude": -82.6364527
+      },
+      "ironYardDistance": 1
+    },
+    "alternative_locations": [
+      "Locale Market",
+      "The Fresh Market",
+      "Winn-Dixie"
+    ]
+  },
+  {
+    "search_key": "q8872",
+    "product_name": "Macbook",
+    "description": " ",
+    "image_filename": "macbookGoldImage.png",
+    "store_info": {
+      "name": "Apple Store",
+      "address": {
+        "street": "2223 N Westshore Blvd.",
+        "cityStateZip": "Tampa, FL 33607"
+      },
+      "coordinates": {
+        "latitude": 27.964536,
+        "longitude": -82.520756
+      },
+      "ironYardDistance": 1
+    },
+    "alternative_locations": [
+      "Something 1",
+      "Something 2",
+      "Something 3"
+    ]
+  },
+  {
+    "search_key": "q1992",
+    "product_name": "2015 Scion FR-S Coupe",
+    "description": " ",
+    "image_filename": "orangeToyotaImage.jpg",
+    "store_info": {
+      "name": "AutoNation Toyota Pinellas Park",
+      "address": {
+        "street": "8501 US Hwy 19 N",
+        "cityStateZip": "Pinellas Park, FL 33781"
+      },
+      "coordinates": {
+        "latitude": 27.8490204,
+        "longitude": -82.6898354
+      },
+      "ironYardDistance": 1
+    },
+    "alternative_locations": [
+      "Clearwater Toyota",
+      "Stadium Toyota",
+      "Toyota of Tampa Bay"
+    ]
+  },
+  {
+    "search_key": "q2098",
+    "product_name": "Envelopes",
+    "description": " ",
+    "image_filename": "vivaTowelsImage.jpg",
+    "store_info": {
+      "name": "Staples",
+      "address": {
+        "street": "2004 34th St N",
+        "cityStateZip": "St Petersburg, FL 33713"
+      },
+      "coordinates": {
+        "latitude": 27.7902612,
+        "longitude": -82.6804926
+      },
+      "ironYardDistance": 1
+    },
+    "alternative_locations": [
+      "Something 1",
+      "Something 2",
+      "Something 3"
+    ]
+  }
+]

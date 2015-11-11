@@ -4,7 +4,7 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lato|Open+Sans|Roboto|Raleway);
+@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lato);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css);
 html {
   font-family: sans-serif;
@@ -389,7 +389,7 @@ footer {
     font-family: Lato; }
 
 /* Header.jsx */
-header {
+#header {
   position: fixed;
   color: #F54100;
   width: 100%;
@@ -397,8 +397,9 @@ header {
   left: 0;
   top: 0;
   text-align: left;
-  padding: 0; }
-  header h3 {
+  padding: 0;
+  z-index: 12; }
+  #header h3 {
     position: fixed;
     left: 20px;
     top: 10px;
@@ -406,15 +407,55 @@ header {
     font-size: 38px;
     font-weight: bold;
     font-family: Alfa Slab One; }
-  header a {
+  #header a {
     color: #F54100;
     text-decoration: none; }
-  header a:visited {
+  #header a:visited {
     color: #F54100; }
-  header a:hover {
+  #header a:hover {
     color: #F54100; }
-  header a:active {
+  #header a:active {
     color: #F54100; }
+
+/* SearchHeader.jsx */
+#searchHeader {
+  position: fixed;
+  color: gray;
+  width: 100%;
+  height: 24px;
+  left: 0;
+  top: 38px;
+  text-align: left;
+  padding: 0;
+  z-index: 10; }
+  #searchHeader h3 {
+    position: fixed;
+    left: 100px;
+    top: 48px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Lato; }
+
+/* ResultsHeader.jsx */
+#resultsHeader {
+  position: fixed;
+  color: gray;
+  width: 100%;
+  height: 24px;
+  left: 0;
+  top: 38px;
+  text-align: left;
+  padding: 0;
+  z-index: 10; }
+  #resultsHeader h3 {
+    position: fixed;
+    left: 100px;
+    top: 48px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Lato; }
 
 /* LargeSearch.jsx */
 .container {
@@ -423,35 +464,37 @@ header {
 
 input {
   font: Lato;
-  font-size: 13px;
   color: #555860; }
 
 .search {
   position: relative;
   margin: 0 auto;
-  width: 300px; }
+  width: 400px;
+  left: -25px; }
   .search input {
-    height: 26px;
+    line-height: 28px;
+    font-size: 28px;
+    height: 40px;
     width: 100%;
     padding: 0 12px 0 25px;
-    background: white url("../images/search.png") 8px 6px no-repeat;
-    border: 1px solid;
+    border: 3px solid;
     border-color: #a8acbc #babdcc #c0c3d2;
-    border-radius: 13px;
+    border-radius: 25px;
+    vertical-align: bottom;
     -webkit-appearance: textfield; }
     .search input:focus {
       outline: 0;
-      border-color: #FF8B60; }
+      border-color: #FF6B35; }
       .search input:focus + .search-ac {
         display: block; }
 
 .search-ac {
-  width: 339px;
+  width: 400px;
   padding-left: 0;
   display: none;
   position: absolute;
-  top: 35px;
-  left: 0;
+  top: 55px;
+  left: 20px;
   right: 0;
   z-index: 10;
   background: #fdfdfd;
@@ -488,7 +531,7 @@ input {
     position: relative;
     margin: 0 -1px;
     padding: 6px 40px 6px 10px;
-    color: #808394;
+    color: black;
     font-weight: 500;
     text-decoration: none;
     text-shadow: 0 1px white;
@@ -520,7 +563,7 @@ input {
 ::-webkit-input-placeholder {
   color: #a7aabc;
   font-weight: 200;
-  line-height: 14px; }
+  line-height: 28px; }
 
 ::-webkit-search-decoration,
 ::-webkit-search-cancel-button {
@@ -530,21 +573,52 @@ input {
   line-height: 26px; }
 
 /* Map.jsx */
+#loading1 {
+  position: relative;
+  color: #F54100;
+  text-align: center;
+  width: 100%;
+  top: 225px;
+  z-index: 10; }
+
 .map {
+  z-index: 30;
   width: 100%;
   height: 400px;
   margin-left: auto;
   margin-right: auto;
-  top: 200px; }
+  top: 0px; }
 
 /* RouteMap.jsx */
+.routeContainer {
+  width: 100%;
+  text-align: center; }
+
+#loading2 {
+  position: relative;
+  color: #F54100;
+  width: 100%;
+  top: 210px;
+  z-index: 10; }
+
 .routeMap {
+  z-index: 30;
   width: 100%;
   height: 400px;
   margin-left: auto;
   margin-right: auto; }
 
 /* Overlay.jsx */
+.chevronBlock {
+  width: 100%;
+  text-align: center; }
+
+#chevron {
+  display: inline-block;
+  position: relative;
+  top: 85vh;
+  color: #EEF0E3; }
+
 .overlay {
   display: block;
   height: 200vh;
@@ -571,11 +645,10 @@ input {
   text-align: center;
   width: 100%;
   margin: 0;
-  top: 300px;
-  font-size: 42px;
+  top: 250px;
   color: #EEF0E3;
   font-family: Alfa Slab One;
-  font-size: 84px;
+  font-size: 118px;
   font-weight: bold;
   z-index: 99; }
 
@@ -594,64 +667,115 @@ input {
 /* SearchPage.jsx */
 /* ResultsPage.jsx */
 .results {
-  margin: 100px auto 75px auto;
-  width: 60%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
-
-.leftSection {
+  margin: 80px auto 0px auto;
+  padding: 0;
+  height: 250px;
   width: 50%; }
-  .leftSection h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold; }
-  .leftSection .address {
-    display: block;
-    margin-left: 40px;
-    margin-top: 20px; }
 
-.rightSection {
-  width: 50%; }
-  .rightSection h4 {
-    font-size: 24px;
-    font-weight: bold; }
-  .rightSection ul {
-    list-style: none; }
-  .rightSection li {
-    font-size: 14px;
-    margin: 5px auto 5px 40px; }
-    .rightSection li a {
-      color: black;
-      text-decoration: none; }
-    .rightSection li a:visited {
-      color: black; }
-    .rightSection li a:hover {
-      color: #F54100;
-      font-size: 16px; }
+.resultsFixedHeight {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%; }
 
 .primaryResult {
-  margin-left: 30px; }
+  width: 60%;
+  float: left;
+  margin-left: 0; }
+
+.productTitle {
+  text-align: center;
+  width: 80%;
+  border-bottom: 1.5px solid grey;
+  margin-bottom: 0;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto; }
+
+.subtitle1 {
+  color: #FF6B35;
+  padding: 0;
+  margin: 0;
+  margin-top: 2px;
+  margin-left: 70px; }
+
+.location {
+  text-align: center;
+  width: 80%;
+  border-bottom: 1.5px solid grey;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.address {
+  text-align: center;
+  width: 80%;
+  border-bottom: 1.5px solid grey;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-size: 20px;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.imageDiv {
+  display: inline-block;
+  width: 40%;
+  height: 100%; }
+
+.productImage {
+  display: block;
+  margin-left: 0;
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 100%; }
 
 .secondaryResults {
-  margin-top: 60px;
-  margin-left: 30px;
-  margin-bottom: 25px; }
+  margin-top: 30px;
+  width: 100%; }
+  .secondaryResults h4 {
+    text-align: center;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: black; }
+  .secondaryResults ul {
+    text-align: center;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    list-style-type: none; }
+  .secondaryResults li {
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 10px 5px 10px; }
+    .secondaryResults li a {
+      color: grey;
+      text-decoration: none; }
+    .secondaryResults li a:visited {
+      color: grey; }
+    .secondaryResults li a:hover {
+      color: #F54100; }
 
 /* SmallSearch.jsx */
 .container2 {
-  margin-top: 25pxx;
-  margin-left: 5px;
+  margin-top: 25px;
   width: 100%; }
 
 .search2 {
   position: relative;
   margin: 20px auto 40px auto;
-  width: 300px; }
+  width: 300px;
+  left: -25px; }
   .search2 input {
     height: 26px;
     width: 100%;
-    padding: 0 12px 0 25px;
+    padding: 0 25px 0 25px;
     background: white url("../images/search.png") 8px 6px no-repeat;
     border: 1px solid;
     border-color: #a8acbc #babdcc #c0c3d2;

@@ -4,23 +4,21 @@ class Router extends Backbone.Router {
   get routes() {
     return {
       '' : 'search',
-      'results/:id' : 'results',
+      'results/:key' : 'results',
       'splash' : 'splash'
     }
   }
 
   splash() {
-    console.log('routed to "splash"!');
     this.current = 'splash';
   }
 
   search() {
-    console.log('routed to "search"!');
     this.current = 'search';
   }
 
-  results() {
-    console.log('routed to "result"!');
+  results(key) {
+    this.query = key;
     this.current = 'results';
   }
 

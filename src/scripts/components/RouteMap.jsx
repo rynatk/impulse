@@ -1,14 +1,24 @@
 import React from 'react';
 
 class RouteMap extends React.Component {
-  initMap() {
 
+  constructor(props) {
+    super(props);
+  }
+
+  initMap() {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        let newPos = {
+
+        let myPos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+
+        let destPos = {
+          lat: this.props.geolocation.latitude,
+          lng: this.props.geolocation.longitude
+        }
 
         let customMapType = new google.maps.StyledMapType([
           {
@@ -34,7 +44,7 @@ class RouteMap extends React.Component {
 
         let mapOptions = {
           scrollWheel: false,
-          center: new google.maps.LatLng(newPos),
+          center: new google.maps.LatLng(myPos),
           zoom: 14,
           mapTypeControl: false,
           mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
@@ -44,6 +54,7 @@ class RouteMap extends React.Component {
 
         newMap.mapTypes.set(customMapTypeId, customMapType);
         newMap.setMapTypeId(customMapTypeId);
+        newMap.setOptions({'scrollwheel': false});
 
         let pinMarker = new google.maps.Marker({
           icon: './images/pin2_orange.png'
@@ -56,16 +67,16 @@ class RouteMap extends React.Component {
               // icon: './images/locationDark.png'
             },
             polylineOptions: {
-              strokeColor: '#006839',
+              strokeColor: '#008549',
               strokeWeight: 6,
-              strokeOpacity: 0.5
+              strokeOpacity: 1.0
             }
           }
         });
 
         let request = {
-          destination: {lat: 27.4944960, lng: -82.6008596},
-          origin: newPos,
+          destination: destPos,
+          origin: myPos,
           travelMode: google.maps.TravelMode.DRIVING
         };
 
@@ -86,7 +97,8 @@ class RouteMap extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="routeContainer">
+        <i className="fa fa-cog fa-spin fa-3x" id="loading2"></i>
         <div className="routeMap" ref="routeMap"></div>
       </div>
     );
